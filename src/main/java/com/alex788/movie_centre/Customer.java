@@ -1,5 +1,7 @@
 package com.alex788.movie_centre;
 
+import com.alex788.movie_centre.movie.RegularPrice;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class Customer {
 
         return result;
     }
+
 
 
     public String statement2() {
@@ -55,7 +58,11 @@ public class Customer {
 
     public int totalRentalPoints() {
         return _rentals.stream()
-                .map(Rental::rentalPoints)
+                .map(Rental::points)
                 .reduce(0, Integer::sum);
+    }
+
+    public void addRental(Rental newReleace) {
+        _rentals.add(newReleace);
     }
 }

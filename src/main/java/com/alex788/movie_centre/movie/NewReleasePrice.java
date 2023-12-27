@@ -1,8 +1,6 @@
 package com.alex788.movie_centre.movie;
 
-public class NewReleaseMovie implements Movie {
-
-    private String _title;
+public class NewReleasePrice implements Price {
 
     @Override
     public double amount(int daysRented) {
@@ -10,7 +8,11 @@ public class NewReleaseMovie implements Movie {
     }
 
     @Override
-    public String getTitle() {
-        return _title;
+    public int points(int daysRented) {
+        int frequentRentalPoints = 1;
+        if (daysRented > 1) {
+            frequentRentalPoints++;
+        }
+        return frequentRentalPoints;
     }
 }

@@ -1,6 +1,7 @@
 package com.alex788.movie_centre;
 
 import com.alex788.movie_centre.movie.Movie;
+import com.alex788.movie_centre.movie.NewReleasePrice;
 
 public class Rental {
 
@@ -21,32 +22,13 @@ public class Rental {
         return _daysRented;
     }
 
-    public int rentalPoints() {
-        int frequentRentalPoints = 1;
-        if (_movie.getPriceCode() == Movie.NEW_RELEASE && _daysRented > 1) {
-            frequentRentalPoints++;
-        }
-        return frequentRentalPoints;
+
+    public int points() {
+        return _movie.getPoints(_daysRented);
     }
 
 
     public double movieAmounts() {
-        double thisAmount = 0;
-        switch (_movie.getPriceCode()) {
-            case Movie.REGULAR -> {
-                thisAmount += 2;
-                if (_daysRented > 2) {
-                    thisAmount += (_daysRented - 2) * 1.5; //each.getDaysRented() = 3 -2 * 1.5
-                }
-            }
-            case Movie.NEW_RELEASE -> thisAmount += _daysRented * 3;
-            case Movie.CHILDREN -> {
-                thisAmount += 1.5;
-                if (_daysRented > 3) {
-                    thisAmount += (_daysRented - 3) * 1.5;
-                }
-            }
-        }
-        return thisAmount;
+        return _movie.amount(_daysRented);
     }
 }

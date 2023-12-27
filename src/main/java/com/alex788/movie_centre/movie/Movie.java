@@ -2,23 +2,31 @@ package com.alex788.movie_centre.movie;
 
 public class Movie {
 
-    public static final int CHILDREN = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
-
     private String _title;
-    private int _priceCode;
+    private Price _price;
 
-    public Movie(String title, int priceCode) {
-        _title = title;
-        _priceCode = priceCode;
-    }
-
-    public int getPriceCode() {
-        return _priceCode;
+    public double amount(int daysRented) {
+        return _price.amount(daysRented);
     }
 
     public String getTitle() {
         return _title;
+    }
+
+    public void setPrice(Price price) {
+        _price = price;
+    }
+
+    public Price get_price() {
+        return _price;
+    }
+
+    public int getPoints(int daysRented) {
+        return _price.points(daysRented);
+    }
+
+    public Movie(String _title, Price _price) {
+        this._title = _title;
+        this._price = _price;
     }
 }

@@ -1,8 +1,11 @@
 package com.alex788.movie_centre.movie;
 
-public class RegularMovie implements Movie {
+public class RegularPrice implements Price {
 
-    private String _title;
+    @Override
+    public int points(int daysRented) {
+        return 1;
+    }
 
     @Override
     public double amount(int daysRented) {
@@ -13,8 +16,5 @@ public class RegularMovie implements Movie {
         return amount;
     }
 
-    @Override
-    public String getTitle() {
-        return _title;
-    }
+
 }

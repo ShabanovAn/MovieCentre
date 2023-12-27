@@ -1,8 +1,6 @@
 package com.alex788.movie_centre.movie;
 
-public class ChildrenMovie implements Movie {
-
-    private String _title;
+public class ChildrenPrice implements Price {
 
     @Override
     public double amount(int daysRented) {
@@ -14,7 +12,7 @@ public class ChildrenMovie implements Movie {
     }
 
     @Override
-    public String getTitle() {
-        return _title;
+    public int points(int daysRented) {
+        return 1;
     }
 }
